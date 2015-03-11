@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Cartie.JS
 
 A simple, lightweight jQuery plugin for cookie based cart basket.
@@ -19,8 +18,10 @@ The plugin can also be loaded as AMD or CommonJS module.
 ## Usage
 
 Set defaults:
-$.cartie({currency:"USD"});
 
+```javascript
+$.cartie({currency:"USD"});
+```
 
 Add Item to cart:
 
@@ -62,6 +63,7 @@ Check out the [Contributing Guidelines](CONTRIBUTING.md)
 [A. Yusuf Besim](https://github.com/angelothic)
 
 ## Thanks
+
 I am used some code blocks from jquery.cookie plugin for this simple cart plugin
 =======
 # Cartie.js

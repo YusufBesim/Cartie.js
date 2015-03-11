@@ -60,11 +60,12 @@ Check out the [Contributing Guidelines](CONTRIBUTING.md)
 
 ## Authors
 
-[A. Yusuf Besim](https://github.com/angelothic)
+[A. Yusuf Besim](https://github.com/yusufbesim)
 
-## Thanks
+# Thanks
 
 I am used some code blocks from jquery.cookie plugin for this simple cart plugin
+
 =======
 # Cartie.js
 A simple, lightweight jQuery plugin for cookie based cart basket.

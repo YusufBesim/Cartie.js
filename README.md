@@ -1,4 +1,4 @@
-# Cartie.JS
+# Cartie.JS v 0.3.0
 
 A simple, lightweight jQuery plugin for cookie based cart basket.
 

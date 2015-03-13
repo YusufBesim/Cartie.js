@@ -41,6 +41,11 @@ Clear cart
 $.cartie('clear');
 ```
 
+Get items
+
+```javascript
+$.cartie('items');
+```
 
 Get cart total price
 

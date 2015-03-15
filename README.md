@@ -47,6 +47,12 @@ Get items
 $.cartie('items');
 ```
 
+Get total product
+
+```javascript
+$.cartie('totalProduct');
+```
+
 Get cart total price
 
 ```javascript

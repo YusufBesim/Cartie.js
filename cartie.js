@@ -4,7 +4,7 @@
  *
  * Copyright 2015
  * Released under the MIT license
- * 
+ *
  * Thanks to Klaus Hartl for cookie manage jquery cookie plugin. This plugins cookie managment code blocks from him
  */
 (function (factory) {
@@ -96,18 +96,21 @@
         for(var index in items) {
             totalPrice += items[index].price * items[index].qty;
         }
-        return totalPrice;
+        return Math.ceil(totalPrice * 100) / 100;
     }
     var config = $.cartie = function (action, options) {
+        options = (options=="undefined"?{}:options);
         var result = false;
         if(typeof(action) === "object"){ // IF set defaults
             for(var index in action) {
                 config.defaults[index] = action[index];
+                if(index == "currency"){config.cart["currency"] = action["currency"]}
             }
+            result = true;
         } else { // IF actions fired
             switch(action){
                 case "default":
-                    result = config.defaults[options];
+                    result = config.defaults[options.option];
                     break;
                 case "items":
                     return config.cart.items;
@@ -121,7 +124,7 @@
                     var items = config.cart.items;
                     for(var index in items) {
                         if(items[index].id == options.id){
-                            config.cart.items[index].qty += options.qty;
+                            config.cart.items[index].qty += parseInt(options.qty);
                             alreadyInCart = true;
                         }
                     }
@@ -129,8 +132,8 @@
                         if(options.id !== undefined && options.price !== undefined){
                             config.cart.items.push({
                                 id:options.id,
-                                qty:(options.qty === undefined?0:options.qty),
-                                price:options.price,
+                                qty:parseInt(options.qty === undefined?0:options.qty),
+                                price:parseFloat(options.price),
                                 name:options.name,
                                 image:options.image,
                                 description:options.description
@@ -140,7 +143,6 @@
                         }
                     }
                     config.cart.total = calculateCart();
-                    cookieManage("cartie",JSON.stringify(config.cart));
                     break;
                 case "remove":
                     var items = config.cart.items;
@@ -151,7 +153,6 @@
                         }
                     }
                     config.cart.total = calculateCart();
-                    cookieManage("cartie",JSON.stringify(config.cart));
                     result = true;
                     break;
                 case "clear":
@@ -166,6 +167,7 @@
                     break;
             }
         }
+        cookieManage("cartie",JSON.stringify(config.cart));
         return result;
     };
 

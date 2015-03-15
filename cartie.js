@@ -115,6 +115,9 @@
                 case "items":
                     return config.cart.items;
                     break;
+                case "totalProduct":
+                    result = config.cart.items.length;
+                    break;
                 case "totalPrice":
                     result = config.cart.total;
                     break;

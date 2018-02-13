@@ -152,7 +152,9 @@
                     for(var index in items) {
                         if(items[index].id == options.id){
                             config.cart.items[index].qty -= options.qty;
-                            if(config.cart.items[index].qty < 1){delete config.cart.items[index]}
+                            if(config.cart.items[index].qty < 1){
+                              config.cart.items.splice(index, 1);
+                            }
                         }
                     }
                     config.cart.total = calculateCart();
